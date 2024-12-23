@@ -15,7 +15,7 @@ async def verify_token(x_shitpost_token: str = Header('X-SHITPOST-TOKEN')):
             detail="Invalid API token",
         )
 
-@router.post("/links/", dependencies=[Depends(verify_token)])
+@router.post("/api/v1/links", dependencies=[Depends(verify_token)])
 async def create_link_mapping(mapping: LinkMapping):
     try:
         await create_link(mapping.slug, mapping.url)

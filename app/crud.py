@@ -4,7 +4,7 @@ from app.database import database
 
 
 async def get_link(slug: str):
-    query = select(link_mappings).where(link_mappings.c.slug == slug)
+    query = select(link_mappings).where(link_mappings.c.slug == slug) # type: ignore
     return await database.fetch_one(query)
 
 

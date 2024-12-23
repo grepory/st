@@ -5,5 +5,6 @@ link_mappings = Table(
     "link_mappings",
     metadata,
     Column("slug", String, primary_key=True),
-    Column("url", String, nullable=False, unique=True)
+    Column("url", String, nullable=False, unique=True),
+    Column("bsky_uri", String)
 )

@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     redis_url: str
     bsky_username: str
     bsky_password: str
+    api_token: str
 
     debug: bool = False
 

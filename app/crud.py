@@ -11,3 +11,7 @@ async def get_link(slug: str):
 async def create_link(slug: str, url: str):
     query = link_mappings.insert().values(slug=slug, url=url)
     return await database.execute(query)
+
+async def associate_bsky_uri(slug: str, uri: str):
+    query = link_mappings.update().where(link_mappings.c.slug == slug).values(bsky_uri=uri)
+    return await database.execute(query)

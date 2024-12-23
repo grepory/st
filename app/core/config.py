@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     bsky_username: str
     bsky_password: str
     api_token: str
+    base_uri: str
 
     debug: bool = False
 

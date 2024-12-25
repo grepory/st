@@ -6,7 +6,6 @@ load_dotenv()
 
 class Settings(BaseSettings):
     database_url: str
-    redis_url: str
     bsky_username: str
     bsky_password: str
     api_token: str

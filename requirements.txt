@@ -5,8 +5,6 @@ sqlalchemy~=2.0.36
 pydantic~=2.10.4
 uvicorn
 atproto~=0.0.56
-celery~=5.4.0
-redis
 aiosqlite~=0.20.0
 pydantic-settings~=2.7.0
 python-dotenv~=1.0.1

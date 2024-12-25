@@ -1,9 +1,11 @@
+import traceback
+
 from fastapi import APIRouter, HTTPException, Header, Depends
 from fastapi.responses import RedirectResponse
 
 from app.core.config import settings
 from app.schemas import LinkMapping
-from app.crud import create_link, get_link
+from app.crud import create_link, get_link, associate_bsky_uri
 from app.tasks.bsky import bsky_post
 
 router = APIRouter(tags=["links"])
@@ -22,6 +24,7 @@ async def create_link_mapping(mapping: LinkMapping):
         await bsky_post(mapping.slug)
         return {"message": "Mapping created successfully"}
     except Exception as e:
+        traceback.print_exc()
         raise HTTPException(status_code=400, detail=str(e))
 
 
